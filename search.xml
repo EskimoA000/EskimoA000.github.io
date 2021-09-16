@@ -4,51 +4,25 @@
   
     
     <entry>
-      <title>tags</title>
-      <link href="/EskimoA000.github.io/2021/09/14/tags/"/>
-      <url>/EskimoA000.github.io/2021/09/14/tags/</url>
+      <title>机器学习习题一</title>
+      <link href="/EskimoA000.github.io/2021/09/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B9%A0%E9%A2%98%E4%B8%80/"/>
+      <url>/EskimoA000.github.io/2021/09/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B9%A0%E9%A2%98%E4%B8%80/</url>
       
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>nature</title>
-      <link href="/EskimoA000.github.io/2021/09/13/nature/"/>
-      <url>/EskimoA000.github.io/2021/09/13/nature/</url>
-      
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p><strong>Administra:</strong></p><p>•You need select at least two assignments from the list.</p><p>•Deliverables: In your writeup, include the best hyperparameters you used (e.g., training schedule, number of iterations, learning rate, backprop timesteps), your saved model parameters for your best model, and your evaluation result.</p><p><strong>Problem 1:</strong></p><p>•Due Date: <strong>Sep. 28, 2021</strong> (<strong>Tuesday</strong>)</p><p>•Task: handwritten digits recognition</p><p>•Data:  <a href="http://yann.lecun.com/exdb/mnist/">MNIST data set</a></p><p>•In this assignment you will practice putting together a simple image classification pipeline, based on the Softmax and the fully-connected classifier. The goals of this assignment are as follows:</p><p>– understand the basic <strong>Image Classification pipeline</strong> and the data-driven approach (train/predict stages)</p><p>– understand the train/val/test <strong>splits</strong> and the use of validation data for <strong>hyperparameter</strong> <strong>tuning</strong></p><p>– implement and apply a <strong>Softmax</strong> classifier</p><p>– implement and apply a <strong>Fully-connected neural network</strong> classifier</p><p>– understand the differences and tradeoffs between these classifiers</p><p>– implement various <strong>update rules</strong> used to optimize Neural Networks</p><h4 id=""><a href="#" class="headerlink" title=""></a></h4><p>•Do something extra! </p><p>​        – Maybe you can experiment with a different loss function and regularization? </p><p>​        – Or maybe you can experiment with different optimization algorithm (e.g., batch GD, online GD, mini-batch GD, SGD, or other optimization alg., e.g., Momentum, Adsgrad, Adam, Admax)</p>]]></content>
       
       
       <categories>
           
-          <category> AI </category>
+          <category> 机器学习 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 智能医学 </tag>
+            <tag> 高级机器学习 </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hello World</title>
-      <link href="/EskimoA000.github.io/2021/09/12/hello-world/"/>
-      <url>/EskimoA000.github.io/2021/09/12/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-      
-      
       
     </entry>
     
