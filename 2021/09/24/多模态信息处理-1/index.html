@@ -6,7 +6,7 @@
   <meta http-equiv="cache-control" content="no-cache">
   <meta http-equiv="expires" content="0">
   
-  <title>多模态信息处理 | 2021_timeMachine</title>
+  <title>多模态信息处理-图像表征 | 2021_timeMachine</title>
   <meta name="author" content="张靖元">
   
   <meta name="description" content="daydayup">
@@ -14,7 +14,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="多模态信息处理"/>
+  <meta property="og:title" content="多模态信息处理-图像表征"/>
   <meta property="og:site_name" content="2021_timeMachine"/>
 
   
@@ -96,7 +96,7 @@
 
 	
 		<div class="page-header">
-			<h1> 多模态信息处理</h1>
+			<h1> 多模态信息处理-图像表征</h1>
 		</div>
 	
 
@@ -113,9 +113,32 @@
 	<div class="mypage">		
 	  		
 
-	  <h2 id="思考："><a href="#思考：" class="headerlink" title="思考："></a>思考：</h2><p>1.多模态表征能否在缩小多模态异质性上更近一步？</p>
-<p>2.多模态关联能否发生在更加复杂的结构空间？</p>
-<p>3.视觉信息的引入能否普遍帮助自然语言处理任务？</p>
+	  <h1 id="L2-基于卷积神经网络的图像分类模型"><a href="#L2-基于卷积神经网络的图像分类模型" class="headerlink" title="L2 基于卷积神经网络的图像分类模型"></a>L2 基于卷积神经网络的图像分类模型</h1><h2 id="一-卷积层"><a href="#一-卷积层" class="headerlink" title="一.卷积层"></a>一.卷积层</h2><p>3通道RGB3<em>32</em>32 3072浮点型  全连接神经网络，加神经元 训练集提高，测试集下降  过拟合  原因是第一层时参数过多 1024*3072</p>
+<p>初级视皮质 单个视觉细胞仅对部分区域的特定模式反应  </p>
+<p>小区域检测模式，卷积神经网络</p>
+<p>全图找特征，全连接神经网络  全连接层展开成一维</p>
+<p>卷积的性质，（1）部分（鸟嘴）（2）相同的模式可能出现在图像不区域</p>
+<p>卷积：局部特征提取器  对每个“子区域”进行加权求和 对每个“子区域”进行加权求和  卷积核：weight/filter/kernel</p>
+<p>𝐖𝟏𝐱𝐇𝟏 —— 𝐅𝒘𝐱𝐅𝒉 ——𝐖𝟐𝐱𝐇𝟐  𝐖𝟐=𝐖𝟏−𝐅𝒘+𝟏  𝐇𝟐=𝐇𝟏−𝐅𝒉+𝟏</p>
+<p>步幅Sw（stride）相邻的子区域很似，没有必要检测所有的子区域</p>
+<p>𝐖𝟐=(𝐖𝟏−𝐅𝒘)/𝐒𝒘+𝟏   𝐇𝟐=(𝐇𝟏−𝐅𝒉)/𝐒𝒉+𝟏</p>
+<p>填充Pw（padding）镜像填充等 填充0</p>
+<p>𝐖𝟐=(𝐖𝟏+𝐏𝒘𝐱𝟐−𝐅𝒘)/𝐒𝒘+𝟏  𝐇𝟐=(𝐇𝟏+𝐏𝒉𝐱𝟐−𝐅𝒉)/𝐒𝒉+𝟏</p>
+<p>输入通道 channel</p>
+<p>输出通道  切面 每个通道代表一个特征</p>
+<h2 id="二-汇聚层"><a href="#二-汇聚层" class="headerlink" title="二.汇聚层"></a>二.汇聚层</h2><p>降维 4<em>4变成2</em>2</p>
+<p>pooling size（池化）+ stride</p>
+<p>最大汇聚层（颜色）</p>
+<p>平均汇聚层</p>
+<h2 id="三-典型结构"><a href="#三-典型结构" class="headerlink" title="三.典型结构"></a>三.典型结构</h2><p>2012 AlexNet</p>
+<p>2013 NIN 1×1卷积 调整通道数</p>
+<p>2013 ZFNet</p>
+<p>2014 VGGNet 3×3卷积  Block  更少的参数，更强的非线性</p>
+<p>convolution </p>
+<p>inception v4</p>
+<p>2015 ResNet  残差模块 优化问题 非线性变化使得特征减少</p>
+<h2 id="四-迁移网络"><a href="#四-迁移网络" class="headerlink" title="四.迁移网络"></a>四.迁移网络</h2><p>越往下学习速率越小 ImageNet</p>
+<p>re’s’net 101 底层去掉</p>
 
 	  <div class="article-footer-copyright">
 
@@ -125,7 +148,7 @@
 	</div>
 
 	
-	<span id="/EskimoA000.github.io/2021/09/22/%E5%A4%9A%E6%A8%A1%E6%80%81%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/" class="leancloud-visitors view" data-flag-title="多模态信息处理">
+	<span id="/EskimoA000.github.io/2021/09/24/%E5%A4%9A%E6%A8%A1%E6%80%81%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86-1/" class="leancloud-visitors view" data-flag-title="多模态信息处理-图像表征">
 		<em class="post-meta-item-text"> Page View </em> <i class="leancloud-visitors-count"></i>
 	</span>
 	
@@ -136,13 +159,13 @@
 
     
     
-    <a href="/EskimoA000.github.io/2021/09/24/多模态信息处理-1/" type="button" class="btn btn-default"><i
+    <a href="/EskimoA000.github.io/2021/10/13/JMBook-Chapter-7-Reading/" type="button" class="btn btn-default"><i
                 class="fa fa-arrow-circle-o-left"></i> 上一页</a>
     
 
     <a href="/EskimoA000.github.io/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
     
-    <a href="/EskimoA000.github.io/2021/09/21/wuti/" type="button" class="btn btn-default ">下一页<i
+    <a href="/EskimoA000.github.io/2021/09/22/多模态信息处理/" type="button" class="btn btn-default ">下一页<i
                 class="fa fa-arrow-circle-o-right"></i></a>
     
 
@@ -199,7 +222,7 @@ new Valine(valineConfig);
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	2021-09-22 
+	2021-09-24 
 	</div>
 	
 

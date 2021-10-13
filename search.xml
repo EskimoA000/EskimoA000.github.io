@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>JMBook Chapter 7 Reading</title>
+      <link href="/EskimoA000.github.io/2021/10/13/JMBook-Chapter-7-Reading/"/>
+      <url>/EskimoA000.github.io/2021/10/13/JMBook-Chapter-7-Reading/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\EskimoA000.github.io\assets\css\APlayer.min.css"><script src="\EskimoA000.github.io\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>JMBook Chapter 7 Reading-神经网络与神经语言模型</p><p>神经网络是语言处理的基本计算工具，“神经”起源于McCulloch-Pitts神经元，这是一种简化的人类神经元模型，是一种可以用命题逻辑描述的计算元素。</p><p>共享大部分相同的数学表达。但神经网络是一种比逻辑回归更强大的分类器，技术上具有单个“隐藏层”的最小的神经网络可以被用于学习任何函数；通过逻辑回归，通过基于领域知识开发了许多丰富的特征模板，将回归分类器应用于许多不同的任务，使用神经网络时，避免使用大量的手工提取功能，而是建立神经网络，将原始单词作为输入并学习推导特征作为学习分类过程的一部分；这章介绍作为分类器的前馈网络，并将其应用于语言建模的简单任务：为单词序列分配概率和预测即将出现的单词。</p><p>7.1 Units</p><p>一个神经网络块的构建是单个计算单元。 单元将实数值作为输入，对它们执行一些计算，并产生一个输出。i神经元对输入进行加权求和，额外项称为偏差项(Bias term):</p><p><img src="file:///C:/Users/ESKIMO~1/AppData/Local/Temp/msohtmlclip1/01/clip_image002.png" alt="https://pic4.zhimg.com/80/v2-ccefaa5185bc1acf24645e39497bc27b_720w.jpg"></p><p>用矢量（vector）符号表示这个加权和：将权重向量w，标量偏差b和输入向量x来讨论z，用点积替换总和:</p><p><img src="file:///C:/Users/ESKIMO~1/AppData/Local/Temp/msohtmlclip1/01/clip_image004.png" alt="https://pic4.zhimg.com/80/v2-ac4e33e1c427f9c6dbd1e2da29abf91f_720w.jpg"></p><p>神经单元将非线性函数f应用于z。将f的输出称为激活单元的激活值a:</p><p><img src="file:///C:/Users/ESKIMO~1/AppData/Local/Temp/msohtmlclip1/01/clip_image006.png" alt="https://pic1.zhimg.com/80/v2-8c836f02e17da5707a08d44a378b27fc_720w.jpg"></p><p>其中有许多函数，例如Sigmoid、tanh、ReLu等。</p><p>7.2 The XOR problem</p><p>Minsky和Papert（1969）证明，单个神经单元无法计算其输入的一些非常简单的函数，这是多层网络需要的最聪明的证明之一。考虑计算两个输入，例如AND，OR，和XOR的基本逻辑函数的任务。</p><p>感知器（perceptron）是具有二进制输出且没有非线性激活功能的非常简单的神经单元。 感知器的输出y是0或1，并且如下计算（使用相同的权重w，输入x和偏差b）:</p><p><img src="file:///C:/Users/ESKIMO~1/AppData/Local/Temp/msohtmlclip1/01/clip_image008.jpg" alt="https://pic4.zhimg.com/80/v2-2ca52c5a3f51da44ff6a5668d3f1019f_720w.jpg"></p><p>逻辑AND和OR函数的感知器为：</p><p><img src="file:///C:/Users/ESKIMO~1/AppData/Local/Temp/msohtmlclip1/01/clip_image010.jpg" alt="preview"></p><p>建立感知器来计算逻辑XOR是不可能的，这一重要结果依赖于理解感知器是线性分类器。XOR不是可线性分离（linearly separable）的可分离函数，但可以用神经网络来解决。</p><p><img src="file:///C:/Users/ESKIMO~1/AppData/Local/Temp/msohtmlclip1/01/clip_image012.jpg" alt="preview"></p><p>使用两层基于ReLU的单元计算XOR，三个ReLU单元在两层: h1，h2（h为“隐藏层”）和y1。 箭头上的数字表示每个单位的权重w，并且我们将偏差b表示为+1的权重，偏差权重/单元为灰色。当x1=[0,0]时，隐藏层输出为[0,-1],将隐藏层变为Relu时输出为[0,0]。</p><p><img src="file:///C:/Users/ESKIMO~1/AppData/Local/Temp/msohtmlclip1/01/clip_image014.png" alt="img"></p><p>7.3 Feed-Forward Neural Networks</p><p>​    前馈网络(feed-forward network)是一种多层网络，其中单元没有循环连接; 单位的输出每个层都传递给下一个更高层的单元，没有输出传递回更低层。</p><p>由于历史原因，多层网络，尤其是前馈网络，有时被称为多层感知器（multi-layer perceptron MLP）; 这是一个技术上的误称，因为现代多层网络中的单位不是感知器（感知器是纯线性的，但是现代网络由具有像sigmoids这样的非线性的单元组成），但是在某些时候这个名字被卡住了。 简单的前馈网络有三种节点：输入单元，隐藏单元和输出单元。</p><p>神经网络的核心是由隐藏单元组成的隐藏层（hidden layer），每个隐藏单元是神经单元，对其输入进行加权求和然后应用非线性。</p><p>在标准体系结构中，每个层都是完全连接(fully-connected)的，这意味着每个层中的每个单元将前一层中所有单元的输出作为输入，并且来自两个相邻层的每对单元之间存在链接。 因此，每个隐藏单元对所有输入单元求和。</p><p>z不能是分类器的输出，因为它是实数值的向量，而我们分类所需的是概率向量。 有一个方便的函数来归一化(normalizing)实数值的向量，将它转换为一个编码概率分布的向量（所有数字的softmax在0和1之间，总和为1）。</p><p>7.4 Training Neural Nets</p><p>前馈神经网络是监督机器学习的一个实例，其中我们知道每个x的正确输出y。</p><p>需要一个能够模拟系统输出和真实输出之间距离的损失函数（loss function），并且通常使用逻辑回归所用的损失，即交叉熵损失（cros-entropy）。使用梯度下降（gradien descent）优化算法找到最小化此损失函数的参数。梯度下降需要知道损失函数的梯度，包括关于每个参数的损失函数的偏导数。</p><p>对于逻辑回归，我们可以初始化梯度下降，所有权重和偏差值为0.在神经网络中，相反，我们需要用小的随机数初始化权重。 将输入值标准化（normalize）为0均值和单位方差也很有帮助。</p><p>各种形式的正则化用于防止过度拟合。dropout在训练期间随机丢弃一些单位及其与网络的连接。</p><p>超参数（Hyperparameter）调整也很重要。 神经网络的参数是权重W和偏差b; 这些都是通过梯度下降来学习的。 超参数是由算法设计者设置的，而不是以相同的方式学习，尽管它们必须进行调整。 超参数包括学习率h，小批量大小，模型架构（层数，每层隐藏节点数，激活函数的选择），如何正则化等等。 梯度下降本身也有许多结构变体，如Adam等。</p><p>7.5 Neural Language Models</p><p>语言模型：预测来自先前单词上下文的即将出现的单词。基于神经网络的语言模型比n-gram语言模型具有许多优点。其中神经语言模型不需要平滑，它们可以处理更长的背，并且它们可以概括相似单词的上下文。 对于给定大小的训练集，  神经语言模型比n-gram语言模型具有更高的预测准确性。此外，神经语言模型是我们为机器翻译，对话和语言生成等任务引入的许多模型的基础。另一方面，这种改进的性能有成本：神经网络语言模型比传统语言模型慢得多，因此对于许多任务来说，n-gram语言模型仍然是正确的工具。</p><p>前馈神经LM是标准前馈网络，在时间t作为输入，表示一些先前单词（wt-1; wt-2）的表示，并输出可能的下一单词的概率分布。就像n-gram LM一样，前馈神经LM通过基于N个先前的单词近似来近似给定整个先验上下P的单词的概率：</p><p><img src="file:///C:/Users/ESKIMO~1/AppData/Local/Temp/msohtmlclip1/01/clip_image016.jpg" alt="https://pic1.zhimg.com/80/v2-9af129aca5db2b53f5d5d45c078e46f4_720w.jpg"></p><p>7.5.1 Embeddings</p><p>在神经语言模型中，先前的上下文通过嵌入前一个单词来表示。 将先前的上下文表示为嵌入，而不是通过n-gram语言模型中使用的精确单词，允许神经语言模型比n-gram语言模型更好地推广到看不见的数据。</p><p>提出问题：</p><p>神经语言模型在预训练时嵌入效果好，还是在语言建模过程中从头开始学习嵌入好？</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算语言学 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 神经网络与神经语言模型 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>多模态信息处理-图像表征</title>
+      <link href="/EskimoA000.github.io/2021/09/24/%E5%A4%9A%E6%A8%A1%E6%80%81%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86-1/"/>
+      <url>/EskimoA000.github.io/2021/09/24/%E5%A4%9A%E6%A8%A1%E6%80%81%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86-1/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\EskimoA000.github.io\assets\css\APlayer.min.css"><script src="\EskimoA000.github.io\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="L2-基于卷积神经网络的图像分类模型"><a href="#L2-基于卷积神经网络的图像分类模型" class="headerlink" title="L2 基于卷积神经网络的图像分类模型"></a>L2 基于卷积神经网络的图像分类模型</h1><h2 id="一-卷积层"><a href="#一-卷积层" class="headerlink" title="一.卷积层"></a>一.卷积层</h2><p>3通道RGB3<em>32</em>32 3072浮点型  全连接神经网络，加神经元 训练集提高，测试集下降  过拟合  原因是第一层时参数过多 1024*3072</p><p>初级视皮质 单个视觉细胞仅对部分区域的特定模式反应  </p><p>小区域检测模式，卷积神经网络</p><p>全图找特征，全连接神经网络  全连接层展开成一维</p><p>卷积的性质，（1）部分（鸟嘴）（2）相同的模式可能出现在图像不区域</p><p>卷积：局部特征提取器  对每个“子区域”进行加权求和 对每个“子区域”进行加权求和  卷积核：weight/filter/kernel</p><p>𝐖𝟏𝐱𝐇𝟏 —— 𝐅𝒘𝐱𝐅𝒉 ——𝐖𝟐𝐱𝐇𝟐  𝐖𝟐=𝐖𝟏−𝐅𝒘+𝟏  𝐇𝟐=𝐇𝟏−𝐅𝒉+𝟏</p><p>步幅Sw（stride）相邻的子区域很似，没有必要检测所有的子区域</p><p>𝐖𝟐=(𝐖𝟏−𝐅𝒘)/𝐒𝒘+𝟏   𝐇𝟐=(𝐇𝟏−𝐅𝒉)/𝐒𝒉+𝟏</p><p>填充Pw（padding）镜像填充等 填充0</p><p>𝐖𝟐=(𝐖𝟏+𝐏𝒘𝐱𝟐−𝐅𝒘)/𝐒𝒘+𝟏  𝐇𝟐=(𝐇𝟏+𝐏𝒉𝐱𝟐−𝐅𝒉)/𝐒𝒉+𝟏</p><p>输入通道 channel</p><p>输出通道  切面 每个通道代表一个特征</p><h2 id="二-汇聚层"><a href="#二-汇聚层" class="headerlink" title="二.汇聚层"></a>二.汇聚层</h2><p>降维 4<em>4变成2</em>2</p><p>pooling size（池化）+ stride</p><p>最大汇聚层（颜色）</p><p>平均汇聚层</p><h2 id="三-典型结构"><a href="#三-典型结构" class="headerlink" title="三.典型结构"></a>三.典型结构</h2><p>2012 AlexNet</p><p>2013 NIN 1×1卷积 调整通道数</p><p>2013 ZFNet</p><p>2014 VGGNet 3×3卷积  Block  更少的参数，更强的非线性</p><p>convolution </p><p>inception v4</p><p>2015 ResNet  残差模块 优化问题 非线性变化使得特征减少</p><h2 id="四-迁移网络"><a href="#四-迁移网络" class="headerlink" title="四.迁移网络"></a>四.迁移网络</h2><p>越往下学习速率越小 ImageNet</p><p>re’s’net 101 底层去掉</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 多模态 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 多模态 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>多模态信息处理</title>
       <link href="/EskimoA000.github.io/2021/09/22/%E5%A4%9A%E6%A8%A1%E6%80%81%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/"/>
       <url>/EskimoA000.github.io/2021/09/22/%E5%A4%9A%E6%A8%A1%E6%80%81%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/</url>
