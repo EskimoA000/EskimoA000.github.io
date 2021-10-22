@@ -6,7 +6,7 @@
   <meta http-equiv="cache-control" content="no-cache">
   <meta http-equiv="expires" content="0">
   
-  <title>多模态信息处理-图像表征 | 2021_timeMachine</title>
+  <title>多模态信息处理-语言表征(词表征) | 2021_timeMachine</title>
   <meta name="author" content="张靖元">
   
   <meta name="description" content="daydayup">
@@ -14,7 +14,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="多模态信息处理-图像表征"/>
+  <meta property="og:title" content="多模态信息处理-语言表征(词表征)"/>
   <meta property="og:site_name" content="2021_timeMachine"/>
 
   
@@ -96,7 +96,7 @@
 
 	
 		<div class="page-header">
-			<h1> 多模态信息处理-图像表征</h1>
+			<h1> 多模态信息处理-语言表征(词表征)</h1>
 		</div>
 	
 
@@ -113,32 +113,46 @@
 	<div class="mypage">		
 	  		
 
-	  <h1 id="L2-基于卷积神经网络的图像分类模型"><a href="#L2-基于卷积神经网络的图像分类模型" class="headerlink" title="L2 基于卷积神经网络的图像分类模型"></a>L2 基于卷积神经网络的图像分类模型</h1><h2 id="一-卷积层"><a href="#一-卷积层" class="headerlink" title="一.卷积层"></a>一.卷积层</h2><p>3通道RGB3<em>32</em>32 3072浮点型  全连接神经网络，加神经元 训练集提高，测试集下降  过拟合  原因是第一层时参数过多 1024*3072</p>
-<p>初级视皮质 单个视觉细胞仅对部分区域的特定模式反应  </p>
-<p>小区域检测模式，卷积神经网络</p>
-<p>全图找特征，全连接神经网络  全连接层展开成一维</p>
-<p>卷积的性质，（1）部分（鸟嘴）（2）相同的模式可能出现在图像不区域</p>
-<p>卷积：局部特征提取器  对每个“子区域”进行加权求和 对每个“子区域”进行加权求和  卷积核：weight/filter/kernel</p>
-<p>𝐖𝟏𝐱𝐇𝟏 —— 𝐅𝒘𝐱𝐅𝒉 ——𝐖𝟐𝐱𝐇𝟐  𝐖𝟐=𝐖𝟏−𝐅𝒘+𝟏  𝐇𝟐=𝐇𝟏−𝐅𝒉+𝟏</p>
-<p>步幅Sw（stride）相邻的子区域很似，没有必要检测所有的子区域</p>
-<p>𝐖𝟐=(𝐖𝟏−𝐅𝒘)/𝐒𝒘+𝟏   𝐇𝟐=(𝐇𝟏−𝐅𝒉)/𝐒𝒉+𝟏</p>
-<p>填充Pw（padding）镜像填充等 填充0</p>
-<p>𝐖𝟐=(𝐖𝟏+𝐏𝒘𝐱𝟐−𝐅𝒘)/𝐒𝒘+𝟏  𝐇𝟐=(𝐇𝟏+𝐏𝒉𝐱𝟐−𝐅𝒉)/𝐒𝒉+𝟏</p>
-<p>输入通道 channel</p>
-<p>输出通道  切面 每个通道代表一个特征</p>
-<h2 id="二-汇聚层"><a href="#二-汇聚层" class="headerlink" title="二.汇聚层"></a>二.汇聚层</h2><p>降维 4<em>4变成2</em>2</p>
-<p>pooling size（池化）+ stride</p>
-<p>最大汇聚层（颜色）</p>
-<p>平均汇聚层</p>
-<h2 id="三-典型结构"><a href="#三-典型结构" class="headerlink" title="三.典型结构"></a>三.典型结构</h2><p>2012 AlexNet</p>
-<p>2013 NIN 1×1卷积 调整通道数</p>
-<p>2013 ZFNet</p>
-<p>2014 VGGNet 3×3卷积  Block  更少的参数，更强的非线性</p>
-<p>convolution </p>
-<p>inception v4</p>
-<p>2015 ResNet  残差模块 优化问题 非线性变化使得特征减少</p>
-<h2 id="四-迁移网络"><a href="#四-迁移网络" class="headerlink" title="四.迁移网络"></a>四.迁移网络</h2><p>越往下学习速率越小 ImageNet</p>
-<p>re’s’net 101 底层去掉</p>
+	  <h3 id="分词"><a href="#分词" class="headerlink" title="分词"></a>分词</h3><p>印欧语系是否需要分词？ 如果每一个词当作一个单词，没有联系（computer computers）   空格切分导致数据稀疏</p>
+<p>英语 子词切分-将一个单词切分为若干连续的片段（bert 输入） 贪心算法</p>
+<p>BPE（byte pair encoding）子词词表构建  初始为所有的字符‘a’‘b’…</p>
+<p>编码 解码</p>
+<h3 id="独热表征"><a href="#独热表征" class="headerlink" title="独热表征"></a>独热表征</h3><p>高维、稀疏、离散 所有向量都是正交的</p>
+<p>优化：</p>
+<p> 增加额外的特征：n v adj  加前后缀的特征</p>
+<p>语义词典： WordNet、HowNet（中文 义原） 词的上位信息（飞行物 鸟），需要解决一词多义，词不全</p>
+<p>词聚类特征：分布式上下文进行聚类</p>
+<h3 id="分布式表征"><a href="#分布式表征" class="headerlink" title="分布式表征"></a>分布式表征</h3><p>词的含义可由上下文词的分布进行表示（奠基理论）</p>
+<p>moon 上下文的词频（shinning trees bright dark）</p>
+<p>降维到二维空间  语义相似度计算向量相似度来获得</p>
+<p>文档分类 TF</p>
+<p>降低高频词的权重  点互信息PMI</p>
+<p>分布式表征进行降维 避免稀疏性，反映高阶共现关系</p>
+<p>把一个矩阵分为三个矩阵相乘SVD （Singular Value Decomposition奇异值分解）  一旦训练完成，向量不能进行调整</p>
+<p> 分布式表征缺点：训练速度慢   不能拓展到句子</p>
+<h3 id="词嵌入"><a href="#词嵌入" class="headerlink" title="词嵌入"></a>词嵌入</h3><p>低维稠密的向量来表示词   但是用自监督的方法学习词向量</p>
+<p>LDA：主题模型  </p>
+<p>语言模型：估计若干个词的联合概率</p>
+<p>N-gram 马尔可夫链</p>
+<p>NNLM神经网络语言模型 前馈神经网络  通过查表获得词向量</p>
+<p>SENNA 换词根据上下文 </p>
+<p>Word2vec <em>过度简化</em> 是学习词嵌入表征的一种框架 收集大规模的文本语料  词表中的每一个词都被表示为一个向量</p>
+<p>语料中文本每一个词组为中心词  几个词当一个窗口</p>
+<p>Word2vec：CBOW模型  连续的词袋模型 根据一定窗口大小内的上下文，对当前时刻的词进行预测</p>
+<p>本质上是分类问题 提升计算效率 1.分采样2.层次softmax</p>
+<p>应用：词义相似度计算 词类比关系计算 知识图谱补全 推荐系统</p>
+<p>skip-gram：根据目标词预测上下文中单词 输入层：one hot 权重wt</p>
+<p>note2vec</p>
+<p>Glove 结合word2vec和svd的思想 基于计数的思想 把———假设出来后去回归</p>
+<h3 id="动态词嵌入"><a href="#动态词嵌入" class="headerlink" title="动态词嵌入"></a>动态词嵌入</h3><p>上面静态词嵌入是假设每个词只有一个词表示 无法处理一词多义的现象</p>
+<p>ELMo （embeddings from language models）双向LSTM语言模型</p>
+<p>用字符CNN表示词 一维的卷积 分别训练从右往左和从左往右</p>
+<p>ELMo：词表征</p>
+<p>上下文相关向量</p>
+<p>RNN循环神经网络 构建<em>字符</em>级别的语言模型  核心是有<em>记忆</em>功能 隐藏层是以及单元  训练和测试（输出当输入）不太一样</p>
+<p>时间反向传播算法 都计算完后  时间截断反向传播算法</p>
+<p>Whh连乘用的是gating 梯度爆炸或者小时 （Resnet如何解决的）  </p>
+<p>长短时记忆网络 ————没有连乘项</p>
 
 	  <div class="article-footer-copyright">
 
@@ -148,7 +162,7 @@
 	</div>
 
 	
-	<span id="/EskimoA000.github.io/2021/09/24/%E5%A4%9A%E6%A8%A1%E6%80%81%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86-1/" class="leancloud-visitors view" data-flag-title="多模态信息处理-图像表征">
+	<span id="/EskimoA000.github.io/2021/10/22/%E5%A4%9A%E6%A8%A1%E6%80%81%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86-%E8%AF%AD%E8%A8%80%E8%A1%A8%E5%BE%81-%E8%AF%8D%E8%A1%A8%E5%BE%81/" class="leancloud-visitors view" data-flag-title="多模态信息处理-语言表征(词表征)">
 		<em class="post-meta-item-text"> Page View </em> <i class="leancloud-visitors-count"></i>
 	</span>
 	
@@ -159,13 +173,12 @@
 
     
     
-    <a href="/EskimoA000.github.io/2021/10/13/JMBook-Chapter-7-Reading/" type="button" class="btn btn-default"><i
-                class="fa fa-arrow-circle-o-left"></i> 上一页</a>
+    <a type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-o-left"></i>上一页</a>
     
 
     <a href="/EskimoA000.github.io/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
     
-    <a href="/EskimoA000.github.io/2021/09/22/多模态信息处理/" type="button" class="btn btn-default ">下一页<i
+    <a href="/EskimoA000.github.io/2021/10/15/多模态信息处理-图像表征/" type="button" class="btn btn-default ">下一页<i
                 class="fa fa-arrow-circle-o-right"></i></a>
     
 
@@ -222,7 +235,7 @@ new Valine(valineConfig);
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	2021-09-24 
+	2021-10-22 
 	</div>
 	
 

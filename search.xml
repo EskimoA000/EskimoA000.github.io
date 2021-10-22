@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>多模态信息处理-语言表征(词表征)</title>
+      <link href="/EskimoA000.github.io/2021/10/22/%E5%A4%9A%E6%A8%A1%E6%80%81%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86-%E8%AF%AD%E8%A8%80%E8%A1%A8%E5%BE%81-%E8%AF%8D%E8%A1%A8%E5%BE%81/"/>
+      <url>/EskimoA000.github.io/2021/10/22/%E5%A4%9A%E6%A8%A1%E6%80%81%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86-%E8%AF%AD%E8%A8%80%E8%A1%A8%E5%BE%81-%E8%AF%8D%E8%A1%A8%E5%BE%81/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\EskimoA000.github.io\assets\css\APlayer.min.css"><script src="\EskimoA000.github.io\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="分词"><a href="#分词" class="headerlink" title="分词"></a>分词</h3><p>印欧语系是否需要分词？ 如果每一个词当作一个单词，没有联系（computer computers）   空格切分导致数据稀疏</p><p>英语 子词切分-将一个单词切分为若干连续的片段（bert 输入） 贪心算法</p><p>BPE（byte pair encoding）子词词表构建  初始为所有的字符‘a’‘b’…</p><p>编码 解码</p><h3 id="独热表征"><a href="#独热表征" class="headerlink" title="独热表征"></a>独热表征</h3><p>高维、稀疏、离散 所有向量都是正交的</p><p>优化：</p><p> 增加额外的特征：n v adj  加前后缀的特征</p><p>语义词典： WordNet、HowNet（中文 义原） 词的上位信息（飞行物 鸟），需要解决一词多义，词不全</p><p>词聚类特征：分布式上下文进行聚类</p><h3 id="分布式表征"><a href="#分布式表征" class="headerlink" title="分布式表征"></a>分布式表征</h3><p>词的含义可由上下文词的分布进行表示（奠基理论）</p><p>moon 上下文的词频（shinning trees bright dark）</p><p>降维到二维空间  语义相似度计算向量相似度来获得</p><p>文档分类 TF</p><p>降低高频词的权重  点互信息PMI</p><p>分布式表征进行降维 避免稀疏性，反映高阶共现关系</p><p>把一个矩阵分为三个矩阵相乘SVD （Singular Value Decomposition奇异值分解）  一旦训练完成，向量不能进行调整</p><p> 分布式表征缺点：训练速度慢   不能拓展到句子</p><h3 id="词嵌入"><a href="#词嵌入" class="headerlink" title="词嵌入"></a>词嵌入</h3><p>低维稠密的向量来表示词   但是用自监督的方法学习词向量</p><p>LDA：主题模型  </p><p>语言模型：估计若干个词的联合概率</p><p>N-gram 马尔可夫链</p><p>NNLM神经网络语言模型 前馈神经网络  通过查表获得词向量</p><p>SENNA 换词根据上下文 </p><p>Word2vec <em>过度简化</em> 是学习词嵌入表征的一种框架 收集大规模的文本语料  词表中的每一个词都被表示为一个向量</p><p>语料中文本每一个词组为中心词  几个词当一个窗口</p><p>Word2vec：CBOW模型  连续的词袋模型 根据一定窗口大小内的上下文，对当前时刻的词进行预测</p><p>本质上是分类问题 提升计算效率 1.分采样2.层次softmax</p><p>应用：词义相似度计算 词类比关系计算 知识图谱补全 推荐系统</p><p>skip-gram：根据目标词预测上下文中单词 输入层：one hot 权重wt</p><p>note2vec</p><p>Glove 结合word2vec和svd的思想 基于计数的思想 把———假设出来后去回归</p><h3 id="动态词嵌入"><a href="#动态词嵌入" class="headerlink" title="动态词嵌入"></a>动态词嵌入</h3><p>上面静态词嵌入是假设每个词只有一个词表示 无法处理一词多义的现象</p><p>ELMo （embeddings from language models）双向LSTM语言模型</p><p>用字符CNN表示词 一维的卷积 分别训练从右往左和从左往右</p><p>ELMo：词表征</p><p>上下文相关向量</p><p>RNN循环神经网络 构建<em>字符</em>级别的语言模型  核心是有<em>记忆</em>功能 隐藏层是以及单元  训练和测试（输出当输入）不太一样</p><p>时间反向传播算法 都计算完后  时间截断反向传播算法</p><p>Whh连乘用的是gating 梯度爆炸或者小时 （Resnet如何解决的）  </p><p>长短时记忆网络 ————没有连乘项</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 多模态 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 多模态 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>多模态信息处理-图像表征</title>
+      <link href="/EskimoA000.github.io/2021/10/15/%E5%A4%9A%E6%A8%A1%E6%80%81%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86-%E5%9B%BE%E5%83%8F%E8%A1%A8%E5%BE%81/"/>
+      <url>/EskimoA000.github.io/2021/10/15/%E5%A4%9A%E6%A8%A1%E6%80%81%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86-%E5%9B%BE%E5%83%8F%E8%A1%A8%E5%BE%81/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\EskimoA000.github.io\assets\css\APlayer.min.css"><script src="\EskimoA000.github.io\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="图像表征-离散表征"><a href="#图像表征-离散表征" class="headerlink" title="图像表征-离散表征"></a>图像表征-离散表征</h2><p>dense向量表示的特征最多 先验就是生成</p><p>生成图像–离散特征最好</p><h4 id="VQ-VAE"><a href="#VQ-VAE" class="headerlink" title="VQ-VAE"></a>VQ-VAE</h4><p>quantization量化</p><p>自编码器 输入层、表征层（限制器）、重构层（重构输入）</p><p>量化过程，把卷积层的特征 channel聚类  自编码器加聚类</p><p>编码器如何做下采样。。</p><p>embedding space（dictionary） 相当于字典  最近的找到index 再还原回来</p><p>copying gradients 梯度返回到最前面</p><p>最近邻检索 32float-&gt;32bit</p><p>解码器</p><p>上采样 从小特征到大特征 可以考虑反卷积（并不好）复制rest 32<em>32 -&gt;64</em> 64 再做输入输出大小相同的卷积</p><p>损失函数 </p><p>sg pytorch.detach</p><p>zq是词典里选的  交替更新</p><h4 id="VQ-VAE-2"><a href="#VQ-VAE-2" class="headerlink" title="VQ-VAE-2"></a>VQ-VAE-2</h4><p>多个不同分辨率图片的量化</p><h3 id="VQ-GAN"><a href="#VQ-GAN" class="headerlink" title="VQ-GAN"></a>VQ-GAN</h3><p>判断真假用判断器</p><p>图像风格迁移  风格像一张图 内容像另个一张图</p><p>感知loss 不在像素上算 在卷积层上向量计算 相减</p><p>GAN-生成对抗网络 输入分布、生成器（假钞厂）、判别器discriminator（验钞机） 从简单分布找到一个复杂分布生成数据分布，和目标数据分布尽可能接近</p><p>生成器、判断器交替训练  各自回合只更新自己的参数  </p><p>整体优化目标 先最大化判别器,再最小化生成器</p><p>期望积分</p><p>patch块</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 多模态 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 多模态 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JMBook Chapter 7 Reading</title>
       <link href="/EskimoA000.github.io/2021/10/13/JMBook-Chapter-7-Reading/"/>
       <url>/EskimoA000.github.io/2021/10/13/JMBook-Chapter-7-Reading/</url>
