@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>ceshi</title>
+      <link href="/EskimoA000.github.io/2022/03/15/ceshi/"/>
+      <url>/EskimoA000.github.io/2022/03/15/ceshi/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\EskimoA000.github.io\assets\css\APlayer.min.css"><script src="\EskimoA000.github.io\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>多模态信息处理-语言表征(词表征)</title>
       <link href="/EskimoA000.github.io/2021/10/22/%E5%A4%9A%E6%A8%A1%E6%80%81%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86-%E8%AF%AD%E8%A8%80%E8%A1%A8%E5%BE%81-%E8%AF%8D%E8%A1%A8%E5%BE%81/"/>
       <url>/EskimoA000.github.io/2021/10/22/%E5%A4%9A%E6%A8%A1%E6%80%81%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86-%E8%AF%AD%E8%A8%80%E8%A1%A8%E5%BE%81-%E8%AF%8D%E8%A1%A8%E5%BE%81/</url>
@@ -183,7 +196,7 @@
       <link href="/EskimoA000.github.io/2021/09/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B9%A0%E9%A2%98%E4%B8%80/"/>
       <url>/EskimoA000.github.io/2021/09/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B9%A0%E9%A2%98%E4%B8%80/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\EskimoA000.github.io\assets\css\APlayer.min.css"><script src="\EskimoA000.github.io\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>Administra:</strong></p><p>•You need select at least two assignments from the list.</p><p>•Deliverables: In your writeup, include the best hyperparameters you used (e.g., training schedule, number of iterations, learning rate, backprop timesteps), your saved model parameters for your best model, and your evaluation result.</p><p><strong>Problem 1:</strong></p><p>•Due Date: <strong>Sep. 28, 2021</strong> (<strong>Tuesday</strong>)</p><p>•Task: handwritten digits recognition</p><p>•Data:  <a href="http://yann.lecun.com/exdb/mnist/">MNIST data set</a></p><p>•In this assignment you will practice putting together a simple image classification pipeline, based on the Softmax and the fully-connected classifier. The goals of this assignment are as follows:</p><p>– understand the basic <strong>Image Classification pipeline</strong> and the data-driven approach (train/predict stages)</p><p>– understand the train/val/test <strong>splits</strong> and the use of validation data for <strong>hyperparameter</strong> <strong>tuning</strong></p><p>– implement and apply a <strong>Softmax</strong> classifier</p><p>– implement and apply a <strong>Fully-connected neural network</strong> classifier</p><p>– understand the differences and tradeoffs between these classifiers</p><p>– implement various <strong>update rules</strong> used to optimize Neural Networks</p><h4 id=""><a href="#" class="headerlink" title=""></a></h4><p>•Do something extra! </p><p>​        – Maybe you can experiment with a different loss function and regularization? </p><p>​        – Or maybe you can experiment with different optimization algorithm (e.g., batch GD, online GD, mini-batch GD, SGD, or other optimization alg., e.g., Momentum, Adsgrad, Adam, Admax)</p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\EskimoA000.github.io\assets\css\APlayer.min.css"><script src="\EskimoA000.github.io\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>Administra:</strong></p><p>•You need select at least two assignments from the list.</p><p>•Deliverables: In your writeup, include the best hyperparameters you used (e.g., training schedule, number of iterations, learning rate, backprop timesteps), your saved model parameters for your best model, and your evaluation result.</p><p><strong>Problem 1:</strong></p><p>•Due Date: <strong>Sep. 28, 2021</strong> (<strong>Tuesday</strong>)</p><p>•Task: handwritten digits recognition</p><p>•Data:  <a href="http://yann.lecun.com/exdb/mnist/">MNIST data set</a></p><p>•In this assignment you will practice putting together a simple image classification pipeline, based on the Softmax and the fully-connected classifier. The goals of this assignment are as follows:</p><p>– understand the basic <strong>Image Classification pipeline</strong> and the data-driven approach (train/predict stages)</p><p>– understand the train/val/test <strong>splits</strong> and the use of validation data for <strong>hyperparameter</strong> <strong>tuning</strong></p><p>– implement and apply a <strong>Softmax</strong> classifier</p><p>– implement and apply a <strong>Fully-connected neural network</strong> classifier</p><p>– understand the differences and tradeoffs between these classifiers</p><p>– implement various <strong>update rules</strong> used to optimize Neural Networks</p><h4 id><a href="#" class="headerlink" title></a></h4><p>•Do something extra! </p><p>​        – Maybe you can experiment with a different loss function and regularization? </p><p>​        – Or maybe you can experiment with different optimization algorithm (e.g., batch GD, online GD, mini-batch GD, SGD, or other optimization alg., e.g., Momentum, Adsgrad, Adam, Admax)</p>]]></content>
       
       
       <categories>
