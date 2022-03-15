@@ -4,7 +4,26 @@
   
     
     <entry>
-      <title>test</title>
+      <title>cocktail</title>
+      <link href="/EskimoA000.github.io/2022/03/15/cocktail/"/>
+      <url>/EskimoA000.github.io/2022/03/15/cocktail/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\EskimoA000.github.io\assets\css\APlayer.min.css"><script src="\EskimoA000.github.io\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Looking to Listen at the Cocktail Party:</p><p>A Speaker-Independent Audio-Visual Model for Speech Separation</p><p><em>前言</em></p><p>在嘈杂的环境中，人们非常善于把注意力集中在某个特定的人身上，在心理上“屏蔽”其他所有声音。这种能力被称为“鸡尾酒会效应”。</p><p> “语音分离”（Speech Separation）来自于“鸡尾酒会问题”，采集的音频信号中除了主讲话者之外，还有其他人说话声的干扰和噪音干扰。语音分离的目标就是从这些干扰中分离出主讲话者的语音。</p><p>根据干扰的不同，语音分离任务可以分为三类：</p><p>·         当干扰为噪声信号时，可以称为“语音增强”（Speech Enhancement）</p><p>·         当干扰为其他讲话者时，可以称为“多讲话者分离”（Speaker Separation）</p><p>·         当干扰为目标讲话者自己声音的反射波时，可以称为“解混响”（De-reverberation）</p><p>由于麦克风采集到的声音中可能包括噪声、其他人说话的声音、混响等干扰，不做语音分离、直接进行识别的话，会影响到识别的准确率。因此在语音识别的前端加上语音分离技术，把目标讲话者的声音和其它干扰分开就可以提高语音识别系统的鲁棒性，这从而也成为现代语音识别系统中不可或缺的一环。</p><p>基于深度学习的语音分离，主要是用基于深度学习的方法，从训练数据中学习语音、讲话者和噪音的特征，从而实现语音分离的目标。</p><p>l  这篇文章提出一个视觉-听觉联合模型，通过视觉信息来检测环境中谁在说什么并且分离出来；模型包含两个网络来分别分析视频和音频，通过融合层合并特征，最后使用传统的时频掩膜（Time-frequency masking）来分离语音部分；</p><p>l  训练过程中，搜集大量（90000）高质量、单说话人且头部位置比较正的视频，选取其中说话声音干净的部分，通过融合不同的视频或者给视频加噪声来创建训练集。</p><p><img src="/EskimoA000.github.io/2022/03/15/cocktail/1.jpg" alt="在这里插入图片描述"></p><p>一、论文主要工作</p><p>l  基于深度网络的联合视听模型(AVmodel)——结合视觉和听觉信号，将单个语音信号从其他讲话者和背景噪声等声音的混合中分离出来(<a href="http://looking-to-listen.github.io/">http://looking-to-listen.github.io/</a>)</p><p>l  使用视觉信息来提高源分离质量，并将分离的语音轨迹与视频中可见的讲话者相关联</p><p>l  提出了数据集AVSpeech，其是在YouTube收集了290,000个高质量的演讲，TED演讲和操作视频，然后从这些视频中自动提取大约4700个小时的视频片段(<a href="https://looking-to-listen.github.io/avspeech/index.html">https://looking-to-listen.github.io/avspeech/index.html</a>)</p><p>为了生成训练样本，论文首先从 YouTube 上收集 10 万个高质量讲座和演讲视频。然后从视频中提取带有清晰语音的片段（如没有音乐、观众声音或其他说话者声音的片段）和视频帧中只有一个说话者的片段。这样得到了数量可观的视频片段，镜头中出现的是单个人，且说话的时候没有背景干扰。之后，论文使用这些干净数据生成「合成鸡尾酒会」——将人脸视频、来自单独视频源的对应语音及从 AudioSet 获取的无语音背景噪声混合在一起。</p><p>使用这些数据，能够训练出基于多流卷积神经网络的模型，将合成鸡尾酒会片段分割成视频中每个说话者的单独音频流。网络输入是从每一帧检测到的说话者人脸缩略图中提取到的视觉特征，和视频声音的光谱图表征。训练过程中，网络（分别）学习视觉和听觉信号的编码，然后将其融合在一起形成一个联合音频-视觉表征。有了这种联合表征，网络可以学习为每个说话者输出时频掩码。输出掩码乘以带噪声的输入光谱图，然后被转换成时域波形，以获取每位说话者的单独、干净的语音信号，其中每个语音轨道来自视频中检测到的每一个人。</p><p>模型方法明显优于混合语音领域中当前最优的音频语音分割，并且模型独立于讲话者（训练一次，适用于任何讲话者），比最近的依赖于讲话者的视听语音分离方法产生更好的结果（需要为每个感兴趣的讲话者训练单独的模型）。</p><p>二、相关工作</p><p>Hershey et al. [2016]提出了一种称为深度聚类的方法，其中使用经过区别训练的语音嵌入来聚类和分离不同的来源。Hershey et al. [2016]也引入了无置换或置换不变损失函数的想法，但他们没有发现它运作良好。 Isik et al. [2016] and Yu et al. [2017]随后介绍了成功使用置换不变损失函数训练DNN的方法。</p><p>Hou J C, Wang S S, Lai Y H, et al. Audio-visual speech enhancement using multimodal deep convolutional neural networks。提出了一个基于多任务CNN的模型，功能：输出去噪语音频谱图以及输入口区域的重构。这些AV语音分离方法的主要局限性在于它们取决于说话者，这意味着必须分别为每个说话者训练专用的模型。</p><p>[Owens and Efros 2018]预测音频和视频流是否在时间上一致。从该自监督模型中提取的学习特征用于调节屏幕上/屏幕下讲话者源分离模型。Afouras等人[2018]通过使用网络预测去噪语音频谱图的幅度和相位来执行语音增强。Zhao等人[2018]和Gao等人[2018]提出了分离多个屏幕对象（如乐器）声音的密切相关问题。</p><p>…</p><p>三、数据集收集</p><p>Youtube上收集的数据集包含无干扰背景信号的语音片段。这些片段长度不等，长度在3到10秒之间，在每个片段中，视频中唯一可见的人脸和配乐中唯一可听到的声音都属于一个说话的人。总的来说，该数据集包含大约4700小时的视频片段，约有150000名不同的演讲者，涵盖各种各样的人、语言和面部姿势。</p><p><img src="/EskimoA000.github.io/2022/03/15/cocktail/2.png" alt="img"></p><p>首先收集了29万个高质量的在线公共演讲视频（a）从这些视频中，提取了清晰的语音片段（例如，没有混合音乐、观众声音或其他声源），并且在帧中可以看到讲话者。共有4700小时的视频剪辑，每个人在没有背景干扰的情况下讲话（b）。这些数据涵盖各种各样的人、语言和面部姿势，分布如（c）所示（使用自动分类器估计年龄和头部角度）。</p><p>之后就是用于创建数据集的视频和音频处理：</p><p><img src="/EskimoA000.github.io/2022/03/15/cocktail/3.png" alt="img"></p><p>（a）使用人脸检测和跟踪从视频中提取候选语音片段，并拒绝人脸模糊或不够正面的帧。（b）通过估计语音信噪比(SNR)来丢弃含噪语音的片段。该图旨在显示本论文采用的语音SNR估计器的准确性（以及数据集的质量）。在已知的信噪比水平下，比较了干净语音和非语音噪声的合成混合物的真实语音信噪比和预测的信噪比。预测的SNR值（以dB为单位）在每个SNR单元生成的60个混合值上求平均值，误差条表示1个标准。并丢弃预测的语音SNR低于17 dB（由图中的灰色虚线标记）的片段。</p><p><img src="/EskimoA000.github.io/2022/03/15/cocktail/5.png" alt="https://pic4.zhimg.com/80/v2-3a02cf6cda55925dd1d09d72cbff57af_720w.png"></p><p>Dataset creation pipeline：数据集收集过程有两个主要阶段：</p><p>\1. 使用Hoover等人[2017]的讲话者跟踪方法来检测一个人的视频片段，该人在说话时面部可见。从片段中丢弃模糊、照明不足或具有极端姿势的面部帧。如果某个片段的面帧丢失超过15%，则该片段将被完全丢弃。</p><p>\2. 细化语音片段，使其仅包含干净、无干扰的语音。使用预先训练的纯音频语音去噪网络，使用去噪后的输出作为干净信号的估计来预测给定片段的信噪比。该网络的体系结构与针对纯音频语音增强实施的体系结构相同，它是根据公共领域音频书籍的LibriVox集合中的语音进行训练的。拒绝估计信噪比低于阈值的段，实验发现阈值约为17 dB。</p><p>四、Audio-Visual Speech Separation model结构</p><p>输入：</p><p>\1. 视觉特征——给定一个包含多个演讲者的视频片段，本论文使用现成的面部检测器（如Google Cloud Vision API）在每个帧中查找面部75张。再使用FaceNet将人脸图像提取为一个Face embedding。对面部图像的原始像素进行了清晰化等实验，但这并没有提高性能。（每个讲话者共75张面部缩略图，假设以25 FPS播放3秒的片段）。</p><p>2.听觉特征——计算了3秒音频段的短时傅里叶变换（STFT），每个时频（TF）单元包含复数的实部和虚部，将两者都用作输入。执行幂律压缩（power-law），以防止强的音频压倒弱的音频。对噪声信号和纯净参考信号都进行相同的处理。在实验中，分离模型可以应用于任意长的视频片段。当在一帧中检测到多个说话的脸部时，模型可以接受多个脸部作为输入。</p><p>输出：</p><p>输出是一个乘法频谱mask，它描述了clean语音与背景噪音的<strong>时频关系</strong>。即每个输入演讲者的复数掩码（实数和虚数两个通道）。相应的频谱图是通过对有噪声的输入频谱图和输出掩码进行复数乘法来计算的。[Wang and Chen [2017], Wang [2014年]，观察到复数掩模比其他方法（例如，频谱图幅度的直接预测或时域波形的直接预测）的工作效果更好。其中用到了两个基于mask的方法：比率掩膜（RM）和复数比率掩膜（cRM）。</p><p><img src="/EskimoA000.github.io/2022/03/15/cocktail/6.png" alt="img"></p><p>Audio-Visual Speech Separation模型基于多流神经网络的架构：视频流以视频中每一帧检测到的人脸的缩略图作为输入，音频流以包含语音和背景噪声的视频音轨作为输入。</p><p>视觉流使用预训练的人脸识别模型提取每个缩略图的Face Embedding，然后使用空洞卷积神经网络学习视觉特征(6个卷积层)。</p><p>音频流首先计算输入信号的STFT以获得频谱图，然后使用类似的空洞卷积神经网络学习音频表示（15个卷积层）。</p><p>然后通过连接学习到的视觉和音频特征来创建联合的视听表示，随后使用Bi-LSTM和3个全连接层进行进一步处理。该网络为每个讲话者输出一个复频谱图掩码，该掩码乘以噪声输入，并转换回波形，以获得每个讲话者的隔离语音信号。</p><p><img src="/EskimoA000.github.io/2022/03/15/cocktail/7.png" alt="img"></p><p><img src="/EskimoA000.github.io/2022/03/15/cocktail/8.png" alt="img"></p><p>为了补偿音频和视频信号之间的采样率差异，论文对视频流的输出进行上采样，以匹配频谱图采样率（100Hz）。这是通过在每个视觉特征的时间维度中使用简单的最近邻插值来完成的。</p><p>AV融合：音频流和视频流通过连接每个流的特征映射进行组合，这些特征映射随后被馈送到Bi-LSTM中，接着是三个FC层。最终输出由每个输入讲话者的复掩模（两个通道，实通道和虚通道）组成。相应的谱图由带噪输入谱图和输出掩模的复数乘法计算。利用幂律压缩后的原始谱图和增强谱图之间的平方误差（L2）作为损失函数来训练网络。使用ISTFT获得最终输出波形。</p><p>模型支持视频中多个可视的讲话者音源隔离，每个讲话者音源由可视流表示，如图4所示。一个单独的，专用的模型是为每一个可视的讲话者训练的，例如，一个可视的讲话者有一个可视流的模型，两个讲话者的话就两个可视流的模型，等等。所有的可视流在卷积层上共享相同的权重。在这种情况下，在继续到Bi-LSTM之前，来自每个视频流的学习特征与学习的音频特征连接在一起。应该注意的是，在实践中，在讲话者数量未知或专用多讲话者模型不可用的一般情况下，可以使用以单个视觉流作为输入的模型。</p><p>具体细节：</p><p>l  implemented in TensorFlow</p><p>l  ReLU activations follow all network layers except for last (mask)</p><p>l  use a batch size of 6 samples and train with Adam optimizer for 5 million steps (batches) with a learning rate of 3 · 10−5 which is reduced by half every 1.8 million steps.</p><p>l  All audio is resampled to 16kHz, and stereo audio is converted to mono by taking only the left channel.</p><p>l  STFT is computed using a Hann window of length 25ms, hop length of 10ms, and FFT size of 512, resulting in an input audio feature of 257 × 298 × 2 scalars.</p><p>l  Power-law compression is performed with p = 0.3 (A0.3, where A is the input/output audio spectrogram).</p><p>l  the face embeddings from all videos to 25 framesper- second (FPS) before training and inference by either removing or replicating embeddings. This results in an input visual stream of 75 face embeddings.</p><p>五、论文结果</p><p>在与仅音频的比较：CHiME-2数据集上进行训练和评估时[Vincent et al. 2013年]被广泛用于语音增强工作，该论文的AO baseline实现了14.6 dB的信噪比，几乎与[2015 Erdogan et al]报告的最新单通道结果14.75 dB一样好。</p><p>在与最近的视听方法进行定量比较：</p><p><img src="/EskimoA000.github.io/2022/03/15/cocktail/9.png" alt="img"></p><p><img src="/EskimoA000.github.io/2022/03/15/cocktail/10.png" alt="img"></p><p>PESQ：PESQ分数范围从1（最差）到4.5（最好），3.8代表一般传统的电话的通话语音品质。</p><p>STOI：0-1范围，数值越大，可懂度更高。</p><p>SDR：信号失真比。</p><p><img src="/EskimoA000.github.io/2022/03/15/cocktail/11.png" alt="img"></p><p>六、论文总结</p><p>本论文提出了一种基于视听神经网络的单通道非特定人语音分离模型。本论文的模型在具有挑战性的场景中运行良好，包括多扬声器混合。为了训练这个模型，本论文创建了一个新的视听数据集，其中包含数千小时的视频片段，其中包含可见的扬声器和本论文从网络上收集的干净的语音。本论文展示了语音分离方面的最新成果，以及在视频字幕和语音识别方面的潜在应用。本论文还进行了大量实验来分析本论文的模型及其组件的行为。</p><p>AUDIO-VISUAL SPEECH ENHANCEMENT METHOD CONDITIONED ON THE LIP MOTION AND SPEAKER-DISCRIMINATIVE EMBEDDINGS</p><p><img src="/EskimoA000.github.io/2022/03/15/cocktail/12.png" alt="img"></p><p><img src="/EskimoA000.github.io/2022/03/15/cocktail/13.png" alt="img"></p><p><img src="/EskimoA000.github.io/2022/03/15/cocktail/14.png" alt="img"></p><p>AN EMPIRICAL STUDY OF VISUAL FEATURES FOR DNN BASED AUDIO-VISUAL SPEECH ENHANCEMENT IN MULTI-TALKER ENVIRONMENTS</p><p><img src="/EskimoA000.github.io/2022/03/15/cocktail/15.png" alt="img"></p><p><img src="/EskimoA000.github.io/2022/03/15/cocktail/16.png" alt="img"></p><p><img src="/EskimoA000.github.io/2022/03/15/cocktail/17.png" alt="img"></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 鸡尾酒会 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>图片功能TEST</title>
       <link href="/EskimoA000.github.io/2022/03/15/test/"/>
       <url>/EskimoA000.github.io/2022/03/15/test/</url>
       
@@ -14,22 +33,9 @@
       
         <tags>
             
-            <tag> 高级机器学习 </tag>
+            <tag> TEST </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>ceshi</title>
-      <link href="/EskimoA000.github.io/2022/03/15/ceshi/"/>
-      <url>/EskimoA000.github.io/2022/03/15/ceshi/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\EskimoA000.github.io\assets\css\APlayer.min.css"><script src="\EskimoA000.github.io\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-      
-      
       
     </entry>
     
