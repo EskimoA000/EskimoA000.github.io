@@ -121,6 +121,144 @@
 <div class="row">
 	<div class="col-md-8">
 		<h3 class="title">
+			<a href="/EskimoA000.github.io/2021/09/22/多模态信息处理/" >多模态信息处理</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2021-09-22  </div>
+		</div>
+	</div>
+	
+
+
+			<!--
+<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="思考："><a href="#思考：" class="headerlink" title="思考："></a>思考：</h2><p>1.多模态表征能否在缩小多模态异质性上更近一步？</p>
+<p>2.多模态关联能否发生在更加复杂的结构空间？</p>
+<p>3.视觉信息的引入能否普遍帮助自然语言处理任务？</p>
+
+	
+
+	</div>
+  <a type="button" href="/EskimoA000.github.io/2021/09/22/多模态信息处理/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+-->
+<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="思考："><a href="#思考：" class="headerlink" title="思考："></a>思考：</h2><p>1.多模态表征能否在缩小多模态异质性上更近一步？</p>
+<p>2.多模态关联能否发生在更加复杂的结构空间？</p>
+<p>3.视觉信息的引入能否普遍帮助自然语言处理任务？</p>
+
+	
+	</div>
+  <a type="button" href="/EskimoA000.github.io/2021/09/22/多模态信息处理/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/EskimoA000.github.io/2021/09/21/wuti/" >wuti</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2021-09-21  </div>
+		</div>
+	</div>
+	
+
+
+			<!--
+<div class="entry">
+  <div class="row">
+	
+	
+		<p>但愿人长久，千里共婵娟。                                          ——2021中秋</p>
+
+	
+
+	</div>
+  <a type="button" href="/EskimoA000.github.io/2021/09/21/wuti/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+-->
+<div class="entry">
+  <div class="row">
+	
+	
+		<p>但愿人长久，千里共婵娟。                                          ——2021中秋</p>
+
+	
+	</div>
+  <a type="button" href="/EskimoA000.github.io/2021/09/21/wuti/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/EskimoA000.github.io/2021/09/16/JMBook-Chapter-3-Reading/" >JMBook Chapter 3 Reading</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2021-09-16  </div>
+		</div>
+	</div>
+	
+
+
+			<!--
+<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="Speech-and-Language-Processing-3rd-ed-draft"><a href="#Speech-and-Language-Processing-3rd-ed-draft" class="headerlink" title="Speech and Language Processing (3rd ed. draft)"></a><a target="_blank" rel="noopener" href="http://www.web.stanford.edu/~jurafsky/slp3/">Speech and Language Processing (3rd ed. draft)</a></h2><h2 id="Chapter-3-：N-gram-Language-Models"><a href="#Chapter-3-：N-gram-Language-Models" class="headerlink" title="Chapter 3 ：N-gram Language Models"></a><a target="_blank" rel="noopener" href="http://www.web.stanford.edu/~jurafsky/slp3/3.pdf">Chapter 3 ：N-gram Language Models</a></h2><h2 id="章节内容综述（笔记）"><a href="#章节内容综述（笔记）" class="headerlink" title="章节内容综述（笔记）"></a>章节内容综述（笔记）</h2><p>N元语法模型（N-gram model）是一个概率模型，可以用来形式化地描述猜测单词的问题。比如要在噪声中或者歧义的输入中辨认出单词，N元语法就是必不可少的，例如应用到输入情况复杂的语音识别（speech recognition）中；同样在写作中拼写校正，语法校正和机器翻译都需要应用N元语法模型；N元语法对于辅助和替代性沟通系统同样重要。<br>   一个N元语法是包含N个单词的序列：二元语法是包含2个单词的序列（如please turn），三元语法是包含3个单词的序列（如 please turn your）。N元语法模型是根据前面出现的单词计算后一个单词的模型。</p>
+<p>如果给定了某个单词w的历史h的条件下，我们用条件概率P来计算单词w的概率，来知道这个历史h后面单词w（例如the）的概率有多大。理想情况下，我们可以使用Web这样足够大的语料库，但是会出现三个问题：一是为了很好的估计出概率，我们经常觉得现有的Web规模还不够足够大；二是语言具有创造性，语言总是会不断创造出新的句子来；三是计算量太大，难以计算概率。</p>
+<p>为此我们可以计算在一个句子序列中每一个单词都有一个特定的值的联合概率，记为               P(w1,w2,…,wn)，我们可以根据概率的链规则把这个概率分解：</p>
+<p><img src="file:///C:/Users/ESKIMO~1/AppData/Local/Temp/msohtmlclip1/01/clip_image002.png" alt="img"></p>
+<p>我们可以通过把若干的条件概率相乘的办法来估计整个单词序列的联合概率，但是当前面的单词序列长度很大时，我们没有很好的办法来计算某个单词精确的条件概率。所以，我们想到一个处理方法：在计算某个单词的条件概率时，不考虑它之前全部的历史，而是只是考虑最接近该单词的若干个单词，从而近似地逼近该单词的历史。</p>
+<p>例如，我们只用前面一个单词的条件概率P，来逼近后面给定的所有单词的概率，这就是二元语法模型，我们有以下的近似逼近公式:</p>
+	
+
+	</div>
+  <a type="button" href="/EskimoA000.github.io/2021/09/16/JMBook-Chapter-3-Reading/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+-->
+<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="Speech-and-Language-Processing-3rd-ed-draft"><a href="#Speech-and-Language-Processing-3rd-ed-draft" class="headerlink" title="Speech and Language Processing (3rd ed. draft)"></a><a target="_blank" rel="noopener" href="http://www.web.stanford.edu/~jurafsky/slp3/">Speech and Language Processing (3rd ed. draft)</a></h2><h2 id="Chapter-3-：N-gram-Language-Models"><a href="#Chapter-3-：N-gram-Language-Models" class="headerlink" title="Chapter 3 ：N-gram Language Models"></a><a target="_blank" rel="noopener" href="http://www.web.stanford.edu/~jurafsky/slp3/3.pdf">Chapter 3 ：N-gram Language Models</a></h2><h2 id="章节内容综述（笔记）"><a href="#章节内容综述（笔记）" class="headerlink" title="章节内容综述（笔记）"></a>章节内容综述（笔记）</h2><p>N元语法模型（N-gram model）是一个概率模型，可以用来形式化地描述猜测单词的问题。比如要在噪声中或者歧义的输入中辨认出单词，N元语法就是必不可少的，例如应用到输入情况复杂的语音识别（speech recognition）中；同样在写作中拼写校正，语法校正和机器翻译都需要应用N元语法模型；N元语法对于辅助和替代性沟通系统同样重要。<br>   一个N元语法是包含N个单词的序列：二元语法是包含2个单词的序列（如please turn），三元语法是包含3个单词的序列（如 please turn your）。N元语法模型是根据前面出现的单词计算后一个单词的模型。</p>
+<p>如果给定了某个单词w的历史h的条件下，我们用条件概率P来计算单词w的概率，来知道这个历史h后面单词w（例如the）的概率有多大。理想情况下，我们可以使用Web这样足够大的语料库，但是会出现三个问题：一是为了很好的估计出概率，我们经常觉得现有的Web规模还不够足够大；二是语言具有创造性，语言总是会不断创造出新的句子来；三是计算量太大，难以计算概率。</p>
+<p>为此我们可以计算在一个句子序列中每一个单词都有一个特定的值的联合概率，记为               P(w1,w2,…,wn)，我们可以根据概率的链规则把这个概率分解：</p>
+<p><img src="file:///C:/Users/ESKIMO~1/AppData/Local/Temp/msohtmlclip1/01/clip_image002.png" alt="img"></p>
+<p>我们可以通过把若干的条件概率相乘的办法来估计整个单词序列的联合概率，但是当前面的单词序列长度很大时，我们没有很好的办法来计算某个单词精确的条件概率。所以，我们想到一个处理方法：在计算某个单词的条件概率时，不考虑它之前全部的历史，而是只是考虑最接近该单词的若干个单词，从而近似地逼近该单词的历史。</p>
+<p>例如，我们只用前面一个单词的条件概率P，来逼近后面给定的所有单词的概率，这就是二元语法模型，我们有以下的近似逼近公式:</p>
+	
+	</div>
+  <a type="button" href="/EskimoA000.github.io/2021/09/16/JMBook-Chapter-3-Reading/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
 			<a href="/EskimoA000.github.io/2021/09/16/机器学习习题一/" >机器学习习题一</a>
 		</h3>
 		</div>
@@ -222,6 +360,10 @@
 		
 			<li><a href="/EskimoA000.github.io/categories/多模态/">多模态<span>4</span></a></li>
 		
+			<li><a href="/EskimoA000.github.io/categories/多模态语音/">多模态语音<span>2</span></a></li>
+		
+			<li><a href="/EskimoA000.github.io/categories/多模态语音降噪与分离/">多模态语音降噪与分离<span>1</span></a></li>
+		
 			<li><a href="/EskimoA000.github.io/categories/无题/">无题<span>1</span></a></li>
 		
 			<li><a href="/EskimoA000.github.io/categories/机器学习/">机器学习<span>1</span></a></li>
@@ -237,21 +379,27 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/EskimoA000.github.io/tags/多模态/">多模态<span>4</span></a></li>
-		
-			<li><a href="/EskimoA000.github.io/tags/N元语法/">N元语法<span>1</span></a></li>
-		
-			<li><a href="/EskimoA000.github.io/tags/神经网络与神经语言模型/">神经网络与神经语言模型<span>1</span></a></li>
+			<li><a href="/EskimoA000.github.io/tags/多模态语音数据集/">多模态语音数据集<span>1</span></a></li>
 		
 			<li><a href="/EskimoA000.github.io/tags/高级机器学习/">高级机器学习<span>1</span></a></li>
 		
+			<li><a href="/EskimoA000.github.io/tags/无题/">无题<span>1</span></a></li>
+		
+			<li><a href="/EskimoA000.github.io/tags/N元语法/">N元语法<span>1</span></a></li>
+		
+			<li><a href="/EskimoA000.github.io/tags/多模态/">多模态<span>4</span></a></li>
+		
 			<li><a href="/EskimoA000.github.io/tags/TEST/">TEST<span>1</span></a></li>
 		
-			<li><a href="/EskimoA000.github.io/tags/鸡尾酒会/">鸡尾酒会<span>1</span></a></li>
+			<li><a href="/EskimoA000.github.io/tags/语音结果评价标准/">语音结果评价标准<span>1</span></a></li>
+		
+			<li><a href="/EskimoA000.github.io/tags/神经网络与神经语言模型/">神经网络与神经语言模型<span>1</span></a></li>
+		
+			<li><a href="/EskimoA000.github.io/tags/多模态语音降噪与分离论文集/">多模态语音降噪与分离论文集<span>1</span></a></li>
 		
 			<li><a href="/EskimoA000.github.io/tags/读书杂谈/">读书杂谈<span>1</span></a></li>
 		
-			<li><a href="/EskimoA000.github.io/tags/无题/">无题<span>1</span></a></li>
+			<li><a href="/EskimoA000.github.io/tags/鸡尾酒会/">鸡尾酒会<span>1</span></a></li>
 		
 		 
 		</ul>
@@ -265,23 +413,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/EskimoA000.github.io/2022/03/15/AVS增强-分离/" ><i class="fa fa-file-o"></i>AVS增强&amp;分离论文list</a>
+      </li>
+    
+      <li>
+        <a href="/EskimoA000.github.io/2022/03/15/Speech-Assessment/" ><i class="fa fa-file-o"></i>Speech Assessment</a>
+      </li>
+    
+      <li>
+        <a href="/EskimoA000.github.io/2022/03/15/AV-Speech-Corpora/" ><i class="fa fa-file-o"></i>AV Speech Corpora</a>
+      </li>
+    
+      <li>
         <a href="/EskimoA000.github.io/2022/03/15/读书杂谈-暗知识/" ><i class="fa fa-file-o"></i>读书杂谈-暗知识(持续更新)</a>
       </li>
     
       <li>
         <a href="/EskimoA000.github.io/2022/03/15/cocktail/" ><i class="fa fa-file-o"></i>cocktail</a>
-      </li>
-    
-      <li>
-        <a href="/EskimoA000.github.io/2022/03/15/test/" ><i class="fa fa-file-o"></i>图片功能TEST</a>
-      </li>
-    
-      <li>
-        <a href="/EskimoA000.github.io/2021/10/22/多模态信息处理-语言表征-词表征/" ><i class="fa fa-file-o"></i>多模态信息处理-语言表征(词表征)</a>
-      </li>
-    
-      <li>
-        <a href="/EskimoA000.github.io/2021/10/15/多模态信息处理-图像表征/" ><i class="fa fa-file-o"></i>多模态信息处理-图像表征</a>
       </li>
     
   </ul>
